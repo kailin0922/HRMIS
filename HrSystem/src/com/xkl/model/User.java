@@ -1,9 +1,11 @@
 package com.xkl.model;
 
+import java.io.Serializable;
+
 /**
  * Created by xkl on 2018/1/25.
  */
-public class User {
+public class User implements Serializable{
     private int id;
     private String name;
     private String pass;

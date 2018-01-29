@@ -3,7 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xkl.dao.UserMapper">
-    <insert id="addUser">
+    <insert id="addUser" parameterType="com.xkl.model.User" useGeneratedKeys="true" keyProperty="id">
         insert into user(name,pass) values(#{name},#{pass});
     </insert>
+    <select id="getUser" resultType="com.xkl.model.User">
+        select * from USER where name=#{name} and pass=#{pass};
+    </select>
+    <select id="checkName" resultType="com.xkl.model.User">
+        select * from USER where name=#{name};
+    </select>
 </mapper>

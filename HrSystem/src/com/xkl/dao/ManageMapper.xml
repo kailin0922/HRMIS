@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xkl.dao.ManageMapper">
+    <insert id="addPosition" parameterType="com.xkl.model.Position" useGeneratedKeys="true" keyProperty="id" >
+       insert into position (name,deptid,createtime) values(#{name},#{deptid},#{createtime})
+    </insert>
+    <insert id="addRecruitment">
+        insert into recruitment(deptid,peoplenumber,requirement,salary,workplace) values(#{deptid},#{peoplenumber},#{requirement},#{salary},#{workplace})
+    </insert>
+    <delete id="deleteRecruitment">
+        delete from recruitment where id=#{id}
+    </delete>
+    <select id="allRecruitmentInfo" resultType="com.xkl.model.Recruitment">
+        select * from recruitment;
+    </select>
+</mapper>
