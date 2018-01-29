@@ -2,6 +2,7 @@ package com.xkl.service.impl;
 
 import com.xkl.dao.DepartmentMapper;
 import com.xkl.dao.ManageMapper;
+import com.xkl.model.ApplyRecruitment;
 import com.xkl.model.Department;
 import com.xkl.model.Position;
 import com.xkl.model.Recruitment;
@@ -27,6 +28,11 @@ public class ManageServiceImpl implements ManageService{
     @Override
     public List<Department> allDepartmentInfo() {
         return departmentMapper.allDepartmentInfo();
+    }
+
+    @Override
+    public List<ApplyRecruitment> allApplyRecords() {
+        return manageMapper.allApplyRecords();
     }
 
     @Override

@@ -5,12 +5,15 @@
        insert into position (name,deptid,createtime) values(#{name},#{deptid},#{createtime})
     </insert>
     <insert id="addRecruitment">
-        insert into recruitment(deptid,peoplenumber,requirement,salary,workplace) values(#{deptid},#{peoplenumber},#{requirement},#{salary},#{workplace})
+        insert into recruitment(name,deptid,peoplenumber,requirement,salary,workplace) values(#{name},#{deptid},#{peoplenumber},#{requirement},#{salary},#{workplace})
     </insert>
     <delete id="deleteRecruitment">
         delete from recruitment where id=#{id}
     </delete>
     <select id="allRecruitmentInfo" resultType="com.xkl.model.Recruitment">
         select * from recruitment;
+    </select>
+    <select id="allApplyRecords" resultType="com.xkl.model.ApplyRecruitment">
+        select * from applyrecruitment;
     </select>
 </mapper>

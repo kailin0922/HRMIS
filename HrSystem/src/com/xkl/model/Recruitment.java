@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Recruitment implements Serializable {
     private int id;
     private int deptid;
-
+    private String name;
     private int peoplenumber;
     private String requirement;
     private double salary;
@@ -17,10 +17,10 @@ public class Recruitment implements Serializable {
     public Recruitment() {
     }
 
-    public Recruitment(int id, int deptid, int peoplenumber, String requirement, double salary, String workplace) {
+    public Recruitment(int id, int deptid, String name, int peoplenumber, String requirement, double salary, String workplace) {
         this.id = id;
         this.deptid = deptid;
-
+        this.name = name;
         this.peoplenumber = peoplenumber;
         this.requirement = requirement;
         this.salary = salary;
@@ -43,7 +43,13 @@ public class Recruitment implements Serializable {
         this.deptid = deptid;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getPeoplenumber() {
         return peoplenumber;
@@ -82,7 +88,7 @@ public class Recruitment implements Serializable {
         return "Recruitment{" +
                 "id=" + id +
                 ", deptid=" + deptid +
-
+                ", name='" + name + '\'' +
                 ", peoplenumber=" + peoplenumber +
                 ", requirement='" + requirement + '\'' +
                 ", salary=" + salary +

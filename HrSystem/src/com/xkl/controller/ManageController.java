@@ -1,5 +1,6 @@
 package com.xkl.controller;
 
+import com.xkl.model.ApplyRecruitment;
 import com.xkl.model.Department;
 import com.xkl.model.Position;
 import com.xkl.model.Recruitment;
@@ -42,10 +43,16 @@ public class ManageController {
         session.setAttribute("departments",departments);
          return "manageJobInfo";
     }
+    @RequestMapping(value = "toApplyInfo")
+    public String toApplyInfo(HttpSession session) throws Exception{
+       List<ApplyRecruitment> allApplyRecords=manageService.allApplyRecords();
+        session.setAttribute("allApplyRecords",allApplyRecords);
+        return "applyInfo";
+    }
     @RequestMapping(value = "/addRecru")
     public String addRecru(HttpServletRequest request,HttpSession session) throws Exception{
 
-        String positionname=request.getParameter("positionname");
+        String name=request.getParameter("name");
         int deptid=Integer.parseInt(request.getParameter("deptid"));
         int peoplenumber=Integer.parseInt(request.getParameter("peoplenumber"));
         String requirement=request.getParameter("requirement");
@@ -58,6 +65,7 @@ public class ManageController {
 
         /*添加简历表recruitment*/
         Recruitment recruitment=new Recruitment();
+        recruitment.setName(name);
         recruitment.setDeptid(deptid);
         recruitment.setPeoplenumber(peoplenumber);
         recruitment.setRequirement(requirement);

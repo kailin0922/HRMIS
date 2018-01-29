@@ -1,5 +1,6 @@
 package com.xkl.dao;
 
+import com.xkl.model.ApplyRecruitment;
 import com.xkl.model.Position;
 import com.xkl.model.Recruitment;
 
@@ -10,6 +11,7 @@ import java.util.List;
  */
 public interface ManageMapper {
     List<Recruitment> allRecruitmentInfo();
+    List<ApplyRecruitment> allApplyRecords();
     boolean addPosition(Position position);
     boolean addRecruitment(Recruitment recruitment);
     boolean deleteRecruitment(Recruitment recruitment);

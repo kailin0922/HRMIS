@@ -19,5 +19,7 @@
 ${user}<br>
 <a href="jobInfo" style="text-decoration: none"><input id="jobInfo" type="button" value="招聘信息"></a><br>
 <a href="toResume" style="text-decoration: none"><input type="button" value="个人简历"></a><br>
+<a href="toApplyRecord" style="text-decoration: none"><input type="button" value="申请职位记录"></a><br>
+<a href="" style="text-decoration: none"><input type="button" value="面试通知"></a><br>
 </body>
 </html>

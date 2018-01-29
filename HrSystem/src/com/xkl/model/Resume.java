@@ -11,12 +11,16 @@ public class Resume {
     private int tel;
     private String address;
     private String major;
+    private String honor;
+    private String credential;
+    private String experience;
+    private String introduction;
     private int uid;
 
     public Resume() {
     }
 
-    public Resume(int id, String name, String sex, int age, int tel, String address, String major, int uid) {
+    public Resume(int id, String name, String sex, int age, int tel, String address, String major, String honor, String credential, String experience, String introduction, int uid) {
         this.id = id;
         this.name = name;
         this.sex = sex;
@@ -24,7 +28,11 @@ public class Resume {
         this.tel = tel;
         this.address = address;
         this.major = major;
-        this.uid=uid;
+        this.honor = honor;
+        this.credential = credential;
+        this.experience = experience;
+        this.introduction = introduction;
+        this.uid = uid;
     }
 
     public int getId() {
@@ -83,6 +91,38 @@ public class Resume {
         this.major = major;
     }
 
+    public String getHonor() {
+        return honor;
+    }
+
+    public void setHonor(String honor) {
+        this.honor = honor;
+    }
+
+    public String getCredential() {
+        return credential;
+    }
+
+    public void setCredential(String credential) {
+        this.credential = credential;
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
+
     public int getUid() {
         return uid;
     }
@@ -101,6 +141,10 @@ public class Resume {
                 ", tel=" + tel +
                 ", address='" + address + '\'' +
                 ", major='" + major + '\'' +
+                ", honor='" + honor + '\'' +
+                ", credential='" + credential + '\'' +
+                ", experience='" + experience + '\'' +
+                ", introduction='" + introduction + '\'' +
                 ", uid=" + uid +
                 '}';
     }
