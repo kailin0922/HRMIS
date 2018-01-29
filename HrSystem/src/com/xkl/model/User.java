@@ -10,13 +10,17 @@ public class User implements Serializable{
     private String name;
     private String pass;
 
+
     public User() {
     }
 
+
     public User(int id, String name, String pass) {
+
         this.id = id;
         this.name = name;
         this.pass = pass;
+
     }
 
     public int getId() {
@@ -42,6 +46,7 @@ public class User implements Serializable{
     public void setPass(String pass) {
         this.pass = pass;
     }
+
 
     @Override
     public String toString() {

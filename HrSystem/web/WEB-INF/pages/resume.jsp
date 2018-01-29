@@ -16,30 +16,27 @@
     <title>标题</title>
 </head>
 <body <%--background="11.jpg"--%> >
-
-
-<table align="center" width="750"  border="1" cellpadding="0" cellspacing="0">
-    <tr>
-        <td colspan="2"><h1><center>个人简历</center></h1></td>
-    </tr>
-    <tr>
-        <td rowspan="4" width="100px">
-            姓名：xxkkll<br>
-            性别：男<br>
-        </td>
-       <td>AAA</td>
-    </tr>
-    <tr>
-        <td>BBB</td>
-    </tr>
-    <tr>
-        <td>BBB</td>
-    </tr>
-    <tr>
-        <td>BBB</td>
-    </tr>
-
-
+<form>
+    <table align="center" width="750"  border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="2"><h1><center>个人简历</center></h1></td>
+        </tr>
+        <tr>
+            <td rowspan="4" width="100px">
+                姓名：xxkkll<br>
+                性别：男<br>
+            </td>
+            <td>AAA</td>
+        </tr>
+        <tr>
+            <td>BBB</td>
+        </tr>
+        <tr>
+            <td>BBB</td>
+        </tr>
+        <tr>
+            <td>BBB</td>
+        </tr>
     <%--<tr>
         <td><b>任职情况</b><br />
             2011.9至今    宿舍舍长<br />
@@ -50,5 +47,6 @@
         <td><b>教育/培训经历</b><br>
     </tr>--%>
 </table>
+</form>
 </body>
 </html>

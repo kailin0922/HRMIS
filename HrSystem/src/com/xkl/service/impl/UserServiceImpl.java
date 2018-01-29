@@ -1,6 +1,7 @@
 package com.xkl.service.impl;
 
 import com.xkl.dao.UserMapper;
+import com.xkl.model.Resume;
 import com.xkl.model.User;
 import com.xkl.service.UserService;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(User user) {
         return userMapper.getUser(user);
+    }
+
+    @Override
+    public Resume getResume(User user) {
+        return userMapper.getResume(user);
     }
 }

@@ -11,12 +11,12 @@ public class Resume {
     private int tel;
     private String address;
     private String major;
-    private User user;
+    private int uid;
 
     public Resume() {
     }
 
-    public Resume(int id, String name, String sex, int age, int tel, String address, String major, User user) {
+    public Resume(int id, String name, String sex, int age, int tel, String address, String major, int uid) {
         this.id = id;
         this.name = name;
         this.sex = sex;
@@ -24,7 +24,7 @@ public class Resume {
         this.tel = tel;
         this.address = address;
         this.major = major;
-        this.user = user;
+        this.uid=uid;
     }
 
     public int getId() {
@@ -83,12 +83,12 @@ public class Resume {
         this.major = major;
     }
 
-    public User getUser() {
-        return user;
+    public int getUid() {
+        return uid;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     @Override
@@ -101,7 +101,7 @@ public class Resume {
                 ", tel=" + tel +
                 ", address='" + address + '\'' +
                 ", major='" + major + '\'' +
-                ", user=" + user +
+                ", uid=" + uid +
                 '}';
     }
 }

@@ -1,5 +1,6 @@
 package com.xkl.service;
 
+import com.xkl.model.Resume;
 import com.xkl.model.User;
 
 /**
@@ -9,4 +10,5 @@ public interface UserService {
     boolean addUser(User user);
     User checkName(User user);
     User getUser(User user);
+    Resume getResume(User user);
 }

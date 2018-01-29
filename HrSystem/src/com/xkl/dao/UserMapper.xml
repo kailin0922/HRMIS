@@ -12,4 +12,7 @@
     <select id="checkName" resultType="com.xkl.model.User">
         select * from USER where name=#{name};
     </select>
+    <select id="getResume" parameterType="com.xkl.model.User" resultType="com.xkl.model.Resume">
+        select * from resume where uid=#{id};
+    </select>
 </mapper>

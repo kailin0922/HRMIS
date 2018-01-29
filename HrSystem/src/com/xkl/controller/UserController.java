@@ -1,5 +1,6 @@
 package com.xkl.controller;
 
+import com.xkl.model.Resume;
 import com.xkl.model.User;
 import com.xkl.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -60,7 +61,9 @@ public class UserController {
     }
     @RequestMapping(value = "/toResume",method = RequestMethod.GET)
     public String toResume(HttpSession session) throws Exception{
-
+        User user= (User) session.getAttribute("user");
+        Resume resume=userService.getResume(user);
+        session.setAttribute("resume",resume);
         return "resume";
     }
 }
