@@ -14,7 +14,7 @@
 <html>
 <head>
     <base href="<%=basePath%>"/>
-    <title>标题</title>
+    <title>简历</title>
     <style>
         .newRe{
             display: none;

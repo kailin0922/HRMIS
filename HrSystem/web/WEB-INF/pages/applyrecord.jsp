@@ -14,7 +14,7 @@
 <html>
 <head>
     <base href="<%=basePath%>"/>
-    <title>标题</title>
+    <title>游客职位申请记录表</title>
 </head>
 <body>
 <table>
@@ -52,7 +52,13 @@
                   等待Hr读取消息
               </c:if>
               <c:if test="${applyrecord.state==1}">
-                  Hr已收到您的申请，请保持联络通畅
+                  Hr已经查看您的申请，请保持联络畅通
+              </c:if>
+              <c:if test="${applyrecord.state==2}">
+                  您的申请已被拒绝
+              </c:if>
+              <c:if test="${applyrecord.state==3}">
+                 <a href="">点击查看面试通知</a>
               </c:if>
           </td>
       </tr>

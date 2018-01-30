@@ -1,10 +1,8 @@
 package com.xkl.controller;
 
-import com.xkl.model.ApplyRecruitment;
-import com.xkl.model.Department;
-import com.xkl.model.Position;
-import com.xkl.model.Recruitment;
+import com.xkl.model.*;
 import com.xkl.service.ManageService;
+import com.xkl.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,10 +20,23 @@ import java.util.List;
 public class ManageController {
      @Resource
      private ManageService manageService;
+     @Resource
+     private UserService userService;
      @RequestMapping(value = "toManageView")
     public String toManageView() throws Exception{
          return "manageLogin";
      }
+    @RequestMapping(value = "/refuseApply",method = RequestMethod.GET)
+    public String refuseApply(HttpServletRequest request,HttpSession session) throws Exception{
+        int id= Integer.parseInt(request.getParameter("id"));
+        ApplyRecruitment applyRecruitment=new ApplyRecruitment();
+        applyRecruitment.setId(id);
+        applyRecruitment.setState(2);
+        boolean b=manageService.updateApplyRecruuitment(applyRecruitment);
+
+         return "manageLogin";
+    }
+
     @RequestMapping(value = "manageLogin",method = RequestMethod.POST)
     public String manageLogin(HttpServletRequest request, HttpSession session) throws Exception{
         String name=request.getParameter("manageName");
@@ -43,10 +54,32 @@ public class ManageController {
         session.setAttribute("departments",departments);
          return "manageJobInfo";
     }
+    @RequestMapping(value = "/manageLookResume",method = RequestMethod.GET)
+    public String toLookResume(HttpServletRequest request,HttpSession session) throws Exception{
+        int uid= Integer.parseInt(request.getParameter("uid"));
+        int id=Integer.parseInt(request.getParameter("id"));
+        session.setAttribute("applyreruitmentid",id);
+        ApplyRecruitment applyRecruitment=new ApplyRecruitment();
+        applyRecruitment.setId(id);
+        applyRecruitment.setState(1);
+        boolean b=manageService.updateApplyRecruuitment(applyRecruitment);
+        User user=new User();
+        user.setId(uid);
+        Resume resume=userService.getResume(user);
+        session.setAttribute("resume",resume);
+        return "manageLookResume";
+    }
     @RequestMapping(value = "toApplyInfo")
     public String toApplyInfo(HttpSession session) throws Exception{
-       List<ApplyRecruitment> allApplyRecords=manageService.allApplyRecords();
+        /*把state状态改为1*/
+        List<ApplyRecruitment> allApplyRecords=manageService.allApplyRecords();
         session.setAttribute("allApplyRecords",allApplyRecords);
+        List<User> users=manageService.allUsers();
+        session.setAttribute("users",users);
+        List<Recruitment> recruitments=manageService.allRecruitmentInfo();
+        List<Department> departments=manageService.allDepartmentInfo();
+        session.setAttribute("recruitments",recruitments);
+        session.setAttribute("departments",departments);
         return "applyInfo";
     }
     @RequestMapping(value = "/addRecru")
@@ -83,6 +116,12 @@ public class ManageController {
         Recruitment recruitment=new Recruitment();
         recruitment.setId(recruid);
         boolean b1=manageService.deleteRecruitment(recruitment);
+
+
+        /*这里删除招聘信息，若已经有申请（applyrecruitment）,需要向申请人发送信息*/
+
+
+
 
         List<Recruitment> recruitments=manageService.allRecruitmentInfo();
         session.setAttribute("recruitments",recruitments);

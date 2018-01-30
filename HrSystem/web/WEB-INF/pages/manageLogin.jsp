@@ -13,7 +13,7 @@
 <html>
 <head>
     <base href="<%=basePath%>"/>
-    <title>标题</title>
+    <title>管理员登陆</title>
 </head>
 <body>
 <div id="divLogin">

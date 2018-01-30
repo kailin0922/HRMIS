@@ -13,7 +13,7 @@
 <html>
 <head>
     <base href="<%=basePath%>"/>
-    <title>游客界面</title>
+    <title>游客登陆</title>
 </head>
 <body>
 <div id="divLogUser">

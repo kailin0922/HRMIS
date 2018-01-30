@@ -2,10 +2,7 @@ package com.xkl.service.impl;
 
 import com.xkl.dao.DepartmentMapper;
 import com.xkl.dao.ManageMapper;
-import com.xkl.model.ApplyRecruitment;
-import com.xkl.model.Department;
-import com.xkl.model.Position;
-import com.xkl.model.Recruitment;
+import com.xkl.model.*;
 import com.xkl.service.ManageService;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +33,11 @@ public class ManageServiceImpl implements ManageService{
     }
 
     @Override
+    public List<User> allUsers() {
+       return manageMapper.allUsers();
+    }
+
+    @Override
     public boolean addPosition(Position position) {
         return manageMapper.addPosition(position);
     }
@@ -48,5 +50,10 @@ public class ManageServiceImpl implements ManageService{
     @Override
     public boolean deleteRecruitment(Recruitment recruitment) {
         return manageMapper.deleteRecruitment(recruitment);
+    }
+
+    @Override
+    public boolean updateApplyRecruuitment(ApplyRecruitment applyRecruitment) {
+        return manageMapper.updateApplyRecruuitment(applyRecruitment);
     }
 }

@@ -14,7 +14,7 @@
 <html>
 <head>
     <base href="<%=basePath%>"/>
-    <title>标题</title>
+    <title>游客招聘信息界面</title>
 </head>
 <body>
 <table border="1" cellspacing="0" cellpadding="0">

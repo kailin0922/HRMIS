@@ -13,7 +13,7 @@
 <html>
 <head>
     <base href="<%=basePath%>"/>
-    <title>标题</title>
+    <title>游客注册失败</title>
 </head>
 <body>
 <a href="toUserView">此用户已存在，点击返回注册界面</a>

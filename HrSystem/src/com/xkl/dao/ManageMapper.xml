@@ -7,6 +7,9 @@
     <insert id="addRecruitment">
         insert into recruitment(name,deptid,peoplenumber,requirement,salary,workplace) values(#{name},#{deptid},#{peoplenumber},#{requirement},#{salary},#{workplace})
     </insert>
+    <update id="updateApplyRecruuitment">
+        update applyrecruitment set state=#{state} where id=#{id}
+    </update>
     <delete id="deleteRecruitment">
         delete from recruitment where id=#{id}
     </delete>
@@ -15,5 +18,8 @@
     </select>
     <select id="allApplyRecords" resultType="com.xkl.model.ApplyRecruitment">
         select * from applyrecruitment;
+    </select>
+    <select id="allUsers" resultType="com.xkl.model.User">
+        select * from user;
     </select>
 </mapper>
