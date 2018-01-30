@@ -1,5 +1,6 @@
 package com.xkl.controller;
 
+import com.sun.org.apache.regexp.internal.RE;
 import com.xkl.model.*;
 import com.xkl.service.ManageService;
 import com.xkl.service.UserService;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
@@ -26,6 +28,21 @@ public class ManageController {
     public String toManageView() throws Exception{
          return "manageLogin";
      }
+    @RequestMapping(value = "/lookEmployeeInfo",method = RequestMethod.GET)
+    public String  lookEmployeeInfo(HttpServletRequest request,HttpSession session) throws Exception{
+        int  uid= Integer.parseInt(request.getParameter("uid"));
+
+        Resume resume=new Resume();
+        resume.setUid(uid);
+        Resume resume1=manageService.searchResumeByUid(resume);
+        Employee employee=new Employee();
+        employee.setResumeId(resume1.getId());
+        Employee employee1=manageService.searchEmployeeByResumeId(employee);
+
+        session.setAttribute("employee",employee1);
+        return "lookSingleEmployee";
+    }
+
     @RequestMapping(value = "/refuseApply",method = RequestMethod.GET)
     public String refuseApply(HttpServletRequest request,HttpSession session) throws Exception{
         int id= Integer.parseInt(request.getParameter("id"));
@@ -33,8 +50,16 @@ public class ManageController {
         applyRecruitment.setId(id);
         applyRecruitment.setState(2);
         boolean b=manageService.updateApplyRecruuitment(applyRecruitment);
-
          return "manageLogin";
+    }
+    @RequestMapping(value = "/agreeApply",method = RequestMethod.GET)
+    public String agreeApply(HttpServletRequest request,HttpSession session) throws Exception{
+        int id= Integer.parseInt(request.getParameter("id"));
+        ApplyRecruitment applyRecruitment=new ApplyRecruitment();
+        applyRecruitment.setId(id);
+        applyRecruitment.setState(3);
+        boolean b=manageService.updateApplyRecruuitment(applyRecruitment);
+        return "manageLogin";
     }
 
     @RequestMapping(value = "manageLogin",method = RequestMethod.POST)
@@ -71,15 +96,18 @@ public class ManageController {
     }
     @RequestMapping(value = "toApplyInfo")
     public String toApplyInfo(HttpSession session) throws Exception{
-        /*把state状态改为1*/
+       /*所有求职记录*/
         List<ApplyRecruitment> allApplyRecords=manageService.allApplyRecords();
         session.setAttribute("allApplyRecords",allApplyRecords);
+       /* 所用求职者*/
         List<User> users=manageService.allUsers();
         session.setAttribute("users",users);
+       /* 所有招聘信息和部门*/
         List<Recruitment> recruitments=manageService.allRecruitmentInfo();
         List<Department> departments=manageService.allDepartmentInfo();
         session.setAttribute("recruitments",recruitments);
         session.setAttribute("departments",departments);
+
         return "applyInfo";
     }
     @RequestMapping(value = "/addRecru")

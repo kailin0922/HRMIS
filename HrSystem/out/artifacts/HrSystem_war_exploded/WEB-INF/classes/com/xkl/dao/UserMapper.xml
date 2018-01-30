@@ -10,7 +10,7 @@
         insert into resume(name,sex,age,tel,address,major,credential,honor,experience,introduction,uid) values(#{name},#{sex},#{age},#{tel},#{address},#{major},#{credential},#{honor},#{experience},#{introduction},#{uid})
     </insert>
     <insert id="addApplyrecruitment">
-        insert into applyrecruitment(uid,recruid,state) values(#{uid},#{recruid},#{state})
+        insert into applyrecruitment(uid,recruid,state,userstate) values(#{uid},#{recruid},#{state},#{userstate})
     </insert>
     <update id="updateResume">
         update resume set name=#{name},sex=#{sex},age=#{age},tel=#{tel},address=#{address},major=#{major},credential=#{credential},honor=#{honor},experience=#{experience},introduction=#{introduction} where id=#{id}
@@ -29,5 +29,17 @@
     </select>
     <select id="allApplyRecords" resultType="com.xkl.model.ApplyRecruitment">
         select * from applyrecruitment where uid=#{id}
+    </select>
+    <select id="checkApplyRecruitment" resultType="com.xkl.model.ApplyRecruitment">
+        select * from applyrecruitment where uid=#{uid} and recruid=#{recruid};
+    </select>
+    <select id="searchApplyRecruitmentById" resultType="com.xkl.model.ApplyRecruitment">
+        select * from applyrecruitment where id=#{id}
+    </select>
+    <select id="searchRecruitmentById" resultType="com.xkl.model.Recruitment">
+        select * from recruitment where id =#{id}
+    </select>
+    <select id="searchEmployeeByResumeId" resultType="com.xkl.model.Employee">
+        select * from employee where resumeId=#{resumeId}
     </select>
 </mapper>

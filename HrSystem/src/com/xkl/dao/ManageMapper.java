@@ -1,9 +1,7 @@
 package com.xkl.dao;
 
-import com.xkl.model.ApplyRecruitment;
-import com.xkl.model.Position;
-import com.xkl.model.Recruitment;
-import com.xkl.model.User;
+import com.xkl.model.*;
+import javafx.geometry.Pos;
 
 import java.util.List;
 
@@ -14,6 +12,11 @@ public interface ManageMapper {
     List<Recruitment> allRecruitmentInfo();
     List<ApplyRecruitment> allApplyRecords();
     List<User> allUsers();
+    Position searchPosition(Position position);
+    Resume searchResumeByUid(Resume resume);
+    Employee getEmployee(Employee employee);
+    Employee searchEmployeeByResumeId(Employee employee);
+    boolean addEmployee(Employee employee);
     boolean addPosition(Position position);
     boolean addRecruitment(Recruitment recruitment);
     boolean deleteRecruitment(Recruitment recruitment);

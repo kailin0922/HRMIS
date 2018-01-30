@@ -21,5 +21,6 @@ ${user}<br>
 <a href="toResume" style="text-decoration: none"><input type="button" value="个人简历"></a><br>
 <a href="toApplyRecord" style="text-decoration: none"><input type="button" value="申请职位记录"></a><br>
 <a href="" style="text-decoration: none"><input type="button" value="面试通知"></a><br>
+<a href="index.jsp" style="text-decoration: none"><input type="button" value="返回"></a><br>
 </body>
 </html>

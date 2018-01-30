@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: xkl
-  Date: 2018/1/27
-  Time: 20:15
+  Date: 2018/1/30
+  Time: 15:15
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,8 +16,11 @@
     <title>标题</title>
 </head>
 <body>
-<a href="toManageJobInfo" style="text-decoration: none"><input type="button" value="招聘信息管理"></a><br>
-<a href="toApplyInfo" style="text-decoration: none"><input type="button" value="游客申请职位信息"></a><br>
-<a href="index.jsp" style="text-decoration: none"><input type="button" value="返回"></a><br>
+<form action="employeeLogin" method="post">
+    帐号：<input name="name"><br>
+    密码：<input type="password" name="pass"><br>
+    <input type="submit" value="登录">
+    <a href="index.jsp"><input type="button" value="返回"></a>
+</form>
 </body>
 </html>

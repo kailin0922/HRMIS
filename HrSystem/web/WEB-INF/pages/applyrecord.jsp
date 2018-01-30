@@ -17,7 +17,7 @@
     <title>游客职位申请记录表</title>
 </head>
 <body>
-<table>
+<table border="1" cellspacing="1" cellpadding="1" >
     <tr>
         <td>ID</td>
         <td>申请职位</td>
@@ -58,7 +58,15 @@
                   您的申请已被拒绝
               </c:if>
               <c:if test="${applyrecord.state==3}">
-                 <a href="">点击查看面试通知</a>
+                  收到面试通知
+                  <a href="agreeInterView?id=${applyrecord.id}">确认面试</a>
+                  <a href="refuseInterView?id=${applyrecord.id}">拒绝面试</a>
+              </c:if>
+              <c:if test="${applyrecord.state==4}">
+                  <a href="userToEmployeeInfo">您已经接受面试，成为员工,点击查看您的信息</a>
+              </c:if>
+              <c:if test="${applyrecord.state==5}">
+                  您已经拒绝面试
               </c:if>
           </td>
       </tr>

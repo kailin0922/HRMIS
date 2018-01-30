@@ -1,9 +1,6 @@
 package com.xkl.dao;
 
-import com.xkl.model.ApplyRecruitment;
-import com.xkl.model.Recruitment;
-import com.xkl.model.Resume;
-import com.xkl.model.User;
+import com.xkl.model.*;
 
 import java.util.List;
 
@@ -15,9 +12,13 @@ public interface UserMapper {
     User checkName(User user);
     User getUser(User user);
     Resume getResume(User user);
+    Employee searchEmployeeByResumeId(Employee employee);
     boolean addResume(Resume resume);
     boolean updateResume(Resume resume);
     boolean addApplyrecruitment(ApplyRecruitment applyRecruitment);
     Recruitment getRecrument(Recruitment recruitment);
     List<ApplyRecruitment> allApplyRecords(User user);
+    ApplyRecruitment checkApplyRecruitment(ApplyRecruitment applyRecruitment);
+    ApplyRecruitment searchApplyRecruitmentById(ApplyRecruitment applyRecruitment);
+    Recruitment searchRecruitmentById(Recruitment recruitment);
 }

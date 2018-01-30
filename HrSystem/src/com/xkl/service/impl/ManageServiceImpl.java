@@ -38,8 +38,33 @@ public class ManageServiceImpl implements ManageService{
     }
 
     @Override
+    public Position searchPosition(Position position) {
+        return manageMapper.searchPosition(position);
+    }
+
+    @Override
+    public Resume searchResumeByUid(Resume resume) {
+        return manageMapper.searchResumeByUid(resume);
+    }
+
+    @Override
+    public Employee getEmployee(Employee employee) {
+        return manageMapper.getEmployee(employee);
+    }
+
+    @Override
+    public Employee searchEmployeeByResumeId(Employee employee) {
+        return manageMapper.searchEmployeeByResumeId(employee);
+    }
+
+    @Override
     public boolean addPosition(Position position) {
         return manageMapper.addPosition(position);
+    }
+
+    @Override
+    public boolean addEmployee(Employee employee) {
+        return manageMapper.addEmployee(employee);
     }
 
     @Override

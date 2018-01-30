@@ -1,9 +1,6 @@
 package com.xkl.service;
 
-import com.xkl.model.ApplyRecruitment;
-import com.xkl.model.Recruitment;
-import com.xkl.model.Resume;
-import com.xkl.model.User;
+import com.xkl.model.*;
 
 import java.util.List;
 
@@ -18,6 +15,9 @@ public interface UserService {
     User checkName(User user);
     User getUser(User user);
     Resume getResume(User user);
+    Employee searchEmployeeByResumeId(Employee employee);
     Recruitment getRecrument(Recruitment recruitment);
     List<ApplyRecruitment> allApplyRecords(User user);
+    ApplyRecruitment searchApplyRecruitmentById(ApplyRecruitment applyRecruitment);
+    Recruitment searchRecruitmentById(Recruitment recruitment);
 }

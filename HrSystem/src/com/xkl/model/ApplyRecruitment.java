@@ -10,15 +10,17 @@ public class ApplyRecruitment implements Serializable {
     private int uid;
     private int recruid;
     private int state;
+    private int userstate;
 
-    public ApplyRecruitment() {
-    }
-
-    public ApplyRecruitment(int id, int uid, int recruid, int state) {
+    public ApplyRecruitment(int id, int uid, int recruid, int state, int userstate) {
         this.id = id;
         this.uid = uid;
         this.recruid = recruid;
         this.state = state;
+        this.userstate = userstate;
+    }
+
+    public ApplyRecruitment() {
     }
 
     public int getId() {
@@ -53,6 +55,14 @@ public class ApplyRecruitment implements Serializable {
         this.state = state;
     }
 
+    public int getUserstate() {
+        return userstate;
+    }
+
+    public void setUserstate(int userstate) {
+        this.userstate = userstate;
+    }
+
     @Override
     public String toString() {
         return "ApplyRecruitment{" +
@@ -60,6 +70,7 @@ public class ApplyRecruitment implements Serializable {
                 ", uid=" + uid +
                 ", recruid=" + recruid +
                 ", state=" + state +
+                ", userstate=" + userstate +
                 '}';
     }
 }

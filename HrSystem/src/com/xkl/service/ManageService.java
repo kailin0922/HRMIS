@@ -13,7 +13,12 @@ public interface ManageService {
     List<Department> allDepartmentInfo();
     List<ApplyRecruitment> allApplyRecords();
     List<User> allUsers();
+    Position searchPosition(Position position);
+    Resume searchResumeByUid(Resume resume);
+    Employee getEmployee(Employee employee);
+    Employee searchEmployeeByResumeId(Employee employee);
     boolean addPosition(Position position);
+    boolean addEmployee(Employee employee);
     boolean addRecruitment(Recruitment recruitment);
     boolean deleteRecruitment(Recruitment recruitment);
     boolean updateApplyRecruuitment(ApplyRecruitment applyRecruitment);

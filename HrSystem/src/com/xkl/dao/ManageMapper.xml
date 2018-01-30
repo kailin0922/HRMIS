@@ -2,13 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xkl.dao.ManageMapper">
     <insert id="addPosition" parameterType="com.xkl.model.Position" useGeneratedKeys="true" keyProperty="id" >
-       insert into position (name,deptid,createtime) values(#{name},#{deptid},#{createtime})
+       insert into position (name,basicsalary,deptid,createtime) values(#{name},#{basicsalary},#{deptid},#{createtime})
     </insert>
     <insert id="addRecruitment">
         insert into recruitment(name,deptid,peoplenumber,requirement,salary,workplace) values(#{name},#{deptid},#{peoplenumber},#{requirement},#{salary},#{workplace})
     </insert>
+    <insert id="addEmployee" parameterType="com.xkl.model.Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into employee(name,pass,age,sex,tel,address,departmentId,positionId,resumeId,state,basicsalary,workstarttime,workendtime) values(#{name},#{pass},#{age},#{sex},#{tel},#{address},#{departmentId},#{positionId},#{resumeId},#{state},#{basicsalary},#{workstarttime},#{workendtime})
+    </insert>
     <update id="updateApplyRecruuitment">
-        update applyrecruitment set state=#{state} where id=#{id}
+        update applyrecruitment set state=#{state},userstate=#{userstate} where id=#{id}
     </update>
     <delete id="deleteRecruitment">
         delete from recruitment where id=#{id}
@@ -21,5 +24,17 @@
     </select>
     <select id="allUsers" resultType="com.xkl.model.User">
         select * from user;
+    </select>
+    <select id="searchPosition" resultType="com.xkl.model.Position">
+        select * from position where name=#{name} and deptid=#{deptid}
+    </select>
+    <select id="searchResumeByUid" resultType="com.xkl.model.Resume">
+        select * from resume where uid=#{uid}
+    </select>
+    <select id="getEmployee" resultType="com.xkl.model.Employee">
+        select * from employee where id=#{id}
+    </select>
+    <select id="searchEmployeeByResumeId" resultType="com.xkl.model.Employee">
+        select * from employee where resumeId=#{resumeId}
     </select>
 </mapper>

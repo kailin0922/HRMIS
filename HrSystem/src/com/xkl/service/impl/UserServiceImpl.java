@@ -1,10 +1,7 @@
 package com.xkl.service.impl;
 
 import com.xkl.dao.UserMapper;
-import com.xkl.model.ApplyRecruitment;
-import com.xkl.model.Recruitment;
-import com.xkl.model.Resume;
-import com.xkl.model.User;
+import com.xkl.model.*;
 import com.xkl.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +32,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean addApplyrecruitment(ApplyRecruitment applyRecruitment) {
+        ApplyRecruitment applyRecruitment1=userMapper.checkApplyRecruitment(applyRecruitment);
+        if (applyRecruitment1!=null){
+            return false;
+        }
         return userMapper.addApplyrecruitment(applyRecruitment);
     }
 
@@ -54,6 +55,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Employee searchEmployeeByResumeId(Employee employee) {
+        return userMapper.searchEmployeeByResumeId(employee);
+    }
+
+    @Override
     public Recruitment getRecrument(Recruitment recruitment) {
         return userMapper.getRecrument(recruitment);
     }
@@ -61,5 +67,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<ApplyRecruitment> allApplyRecords(User user) {
         return userMapper.allApplyRecords(user);
+    }
+
+    @Override
+    public ApplyRecruitment searchApplyRecruitmentById(ApplyRecruitment applyRecruitment) {
+        return userMapper.searchApplyRecruitmentById(applyRecruitment);
+    }
+
+    @Override
+    public Recruitment searchRecruitmentById(Recruitment recruitment) {
+        return userMapper.searchRecruitmentById(recruitment);
     }
 }

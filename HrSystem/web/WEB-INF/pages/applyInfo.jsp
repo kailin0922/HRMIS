@@ -59,10 +59,16 @@
                     <a href="manageLookResume?uid=${allApplyRecord.uid}&id=${allApplyRecord.id}">已查看简历，未回复</a>
                 </c:if>
                 <c:if test="${allApplyRecord.state==2}">
-                    已拒绝
+                    已拒绝对方
                 </c:if>
                 <c:if test="${allApplyRecord.state==3}">
                     已通知面试
+                </c:if>
+                <c:if test="${allApplyRecord.state==4}">
+                    <a href="lookEmployeeInfo?uid=${allApplyRecord.uid}">对方接受面试，成为员工,点击查看该员工信息</a>
+                </c:if>
+                <c:if test="${allApplyRecord.state==5}">
+                    对方拒绝面试
                 </c:if>
             </td>
         </tr>

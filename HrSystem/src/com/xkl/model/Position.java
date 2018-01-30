@@ -9,15 +9,26 @@ public class Position implements Serializable {
     private int id;
     private String name;
     private int deptid;
+    private double basicsalary;
     private String createtime;
 
     public Position() {
     }
 
-    public Position(int id, String name, int deptid, String createtime) {
+    public double getBasicsalary() {
+        return basicsalary;
+    }
+
+    public void setBasicsalary(double basicsalary) {
+        this.basicsalary = basicsalary;
+    }
+
+    public Position(int id, String name, int deptid, double basicsalary, String createtime) {
+
         this.id = id;
         this.name = name;
         this.deptid = deptid;
+        this.basicsalary = basicsalary;
         this.createtime = createtime;
     }
 
@@ -59,6 +70,7 @@ public class Position implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", deptid=" + deptid +
+                ", basicsalary=" + basicsalary +
                 ", createtime='" + createtime + '\'' +
                 '}';
     }
